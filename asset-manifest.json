@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Screen-Recorder/static/css/main.8e21a837.chunk.css",
-    "main.js": "/Screen-Recorder/static/js/main.33d7c5c9.chunk.js",
-    "main.js.map": "/Screen-Recorder/static/js/main.33d7c5c9.chunk.js.map",
+    "main.js": "/Screen-Recorder/static/js/main.cd44a70e.chunk.js",
+    "main.js.map": "/Screen-Recorder/static/js/main.cd44a70e.chunk.js.map",
     "runtime-main.js": "/Screen-Recorder/static/js/runtime-main.90add840.js",
     "runtime-main.js.map": "/Screen-Recorder/static/js/runtime-main.90add840.js.map",
     "static/js/2.f0ffef9e.chunk.js": "/Screen-Recorder/static/js/2.f0ffef9e.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.90add840.js",
     "static/js/2.f0ffef9e.chunk.js",
     "static/css/main.8e21a837.chunk.css",
-    "static/js/main.33d7c5c9.chunk.js"
+    "static/js/main.cd44a70e.chunk.js"
   ]
 }

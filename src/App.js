@@ -3,7 +3,7 @@ import Loader from 'react-loader-spinner'
 import { io } from 'socket.io-client'
 import './App.scss'
 
-const SERVER_URI = 'http://localhost:4000'
+const SERVER_URI = 'http://localhost:3000'
 
 let mediaRecorder = null
 let dataChunks = []
@@ -48,7 +48,7 @@ function App() {
         if (screenStream) {
           try {
             const _voiceStream = await navigator.mediaDevices.getUserMedia({
-              audio: true
+              audio: false
             })
             setVoiceStream(_voiceStream)
           } catch (e) {
@@ -107,14 +107,14 @@ function App() {
     socketRef.current.emit('screenData:end', username.current)
 
     const videoBlob = new Blob(dataChunks, {
-      type: 'video/webm'
+      type: 'video/mp4'
     })
 
     const videoSrc = URL.createObjectURL(videoBlob)
 
     videoRef.current.src = videoSrc
     linkRef.current.href = videoSrc
-    linkRef.current.download = `${Date.now()}-${username.current}.webm`
+    linkRef.current.download = `${Date.now()}-${username.current}.mp4`
 
     mediaRecorder = null
     dataChunks = []

@@ -25,11 +25,9 @@ function App() {
 
   useEffect(() => {
     ;(async () => {
-      if (navigator.mediaDevices.getDisplayMedia) {
+      if (navigator.mediaDevices.getDisplayMedia({audio: true, video: true})) {
         try {
-          const _screenStream = await navigator.mediaDevices.getDisplayMedia({
-            video: true
-          })
+          const _screenStream = await navigator.mediaDevices.getDisplayMedia({audio: true, video: true})
           setScreenStream(_screenStream)
         } catch (e) {
           console.error('*** getDisplayMedia', e)
@@ -41,6 +39,8 @@ function App() {
       }
     })()
   }, [])
+
+
 
   useEffect(() => {
     ;(async () => {
@@ -74,19 +74,9 @@ function App() {
       linkRef.current.removeAttribute('download')
 
       let mediaStream
-      if (voiceStream === 'unavailable') {
-        mediaStream = screenStream
-      } else {
-        // const audioTracks = voiceStream.getAudioTracks()
-        // audioTracks.forEach(track => {
-        //   screenStream.addTrack(track)
-        // })
-        // mediaStream = screenStream
-        mediaStream = new MediaStream([
-          ...screenStream.getVideoTracks(),
-          ...voiceStream.getAudioTracks()
-        ])
-      }
+      mediaStream = screenStream
+       
+      
 
       mediaRecorder = new MediaRecorder(mediaStream)
       mediaRecorder.ondataavailable = ({ data }) => {
@@ -97,7 +87,7 @@ function App() {
         })
       }
       mediaRecorder.onstop = stopRecording
-      mediaRecorder.start(250)
+      mediaRecorder.start(50)
     }
   }
 
@@ -105,6 +95,8 @@ function App() {
     setRecording(false)
 
     socketRef.current.emit('screenData:end', username.current)
+
+
 
     const videoBlob = new Blob(dataChunks, {
       type: 'video/mp4'

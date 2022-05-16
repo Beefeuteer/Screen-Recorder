@@ -1,3 +1,3 @@
 # Screen-Recorder
 Screen Recorder using node js
-https://beefeuteer.github.io/Screen-Recorder/
+You can find the demo here: https://beefeuteer.github.io/Screen-Recorder/
